@@ -11,7 +11,7 @@ import alura.daniel.jumper.engine.Game;
 public class MainActivity extends Activity {
 
     private Game game;
-
+    //TESTE GIT
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
