@@ -4,6 +4,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 import alura.daniel.graphic.Cores;
+import alura.daniel.graphic.Tela;
+import alura.daniel.jumper.engine.Game;
 
 /**
  * Created by daniel on 21/09/17.
@@ -15,9 +17,12 @@ public class Passaro {
     private static final float RAIO = 50;
     private static final Paint VERMELHO = Cores.getCorDoPassaro();
     private float altura;
+    private float velocidade = 1;
+    private final Tela tela;
 
-    public Passaro() {
-        this.altura = 100;
+    public Passaro(Tela tela) {
+        this.tela = tela;
+        this.altura = tela.getAltura()/2;
     }
 
     public void desenhaNo(Canvas canvas) {
@@ -25,10 +30,26 @@ public class Passaro {
     }
 
     public void cai() {
-        this.altura += 5;
+        boolean chegouNoChao = altura + RAIO > tela.getAltura();
+
+        if(!chegouNoChao) {
+            this.altura += 5*velocidade;
+        }
+
     }
 
     public void pula() {
-        this.altura -= 150;
+        if(altura > RAIO) {
+            this.altura -= 350;
+            setVelocidade(1);
+        }
+    }
+
+    public float getVelocidade() {
+        return velocidade;
+    }
+
+    public void setVelocidade(float velocidade) {
+        this.velocidade = velocidade;
     }
 }
