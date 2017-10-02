@@ -1,4 +1,4 @@
-package alura.daniel.graphic;
+package alura.daniel.jumper.graphic;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
@@ -24,4 +24,7 @@ public class Tela {
     }
 
 
+    public int getLargura() {
+        return metrics.widthPixels;
+    }
 }
